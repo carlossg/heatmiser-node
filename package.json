@@ -1,0 +1,26 @@
+{
+  "name": "heatmiser-node",
+  "version": "0.0.1",
+  "description": "A node.js app that talks to heatmiser wifi thermostats",
+  "main": "lib/heatmiser.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/carlossg/heatmiser-node.git"
+  },
+  "keywords": [
+    "heatmiser"
+  ],
+  "author": "Ben Pirt, Carlos Sanchez",
+  "license": "GPL",
+  "readmeFilename": "README.md",
+  "dependencies" : {
+  },
+  "devDependencies": {
+    "optimist": "*"
+  },
+  "engines": {
+  }
+}

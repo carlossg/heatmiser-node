@@ -10,4 +10,6 @@ if(argv['h'] === undefined || argv['p'] === undefined){
 
 hm.read_device(argv.h, 8068, argv.p, function(result){
   console.log(result);
+}, function(error) {
+  console.log("Error: %s", error);
 });

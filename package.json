@@ -1,6 +1,6 @@
 {
   "name": "heatmiser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A node.js app that talks to heatmiser wifi thermostats",
   "main": "lib/heatmiser.js",
   "scripts": {

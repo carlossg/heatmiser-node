@@ -3,9 +3,21 @@
 var expect = require("expect.js"),
   sinon = require("sinon"),
   net = require('net'),
-  heatmiser = require("../lib/heatmiser");
+  Heatmiser = require("../lib/heatmiser");
 
 describe('heatmiser', function(){
+
+  var hm = new Heatmiser('localhost', '0000');
+
+  describe('#Heatmiser()', function(){
+
+    it('should return host, port and pin', function(){
+      expect(hm.host).to.be('localhost');
+      expect(hm.pin).to.be('0000');
+      expect(hm.port).to.be(8068);
+    })
+
+  });
 
   describe('#read_device()', function(){
 
@@ -37,7 +49,7 @@ describe('heatmiser', function(){
       // Asynchronously call the second argument with a null error and some text when passed certain arguments
       net.connect.callsArgWithAsync(1).returns(socket);
 
-      heatmiser.read_device("localhost", "8068", "0000", function(data) {
+      hm.read_device(function(data) {
         done();
       }, function(error) {
         throw error;

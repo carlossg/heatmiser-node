@@ -7,13 +7,14 @@ var expect = require("expect.js"),
 
 describe('heatmiser', function(){
 
-  var hm = new Heatmiser('localhost', '0000');
+  // pin in hex little endian: 0xd204
+  var hm = new Heatmiser('localhost', 1234);
 
   describe('#Heatmiser()', function(){
 
     it('should return host, port and pin', function(){
       expect(hm.host).to.be('localhost');
-      expect(hm.pin).to.be('0000');
+      expect(hm.pin).to.be(1234);
       expect(hm.port).to.be(8068);
     })
 
@@ -28,7 +29,12 @@ describe('heatmiser', function(){
       var stub = sinon.stub(socket, 'write', function (data, encoding, cb) {
 
         try {
-          expect(data.toString('hex')).to.be("930b0000000000ffffda12");
+          // operation: 0x93
+          // pin: 0xd204
+          // data length: 0x0b00
+          // data: 0x0000ffff
+          // checksum: 0x28b4
+          expect(data.toString('hex')).to.be("930b00d2040000ffff28b4");
           done();
         } finally {
           // When done make sure you restore stubs to the original functionality.

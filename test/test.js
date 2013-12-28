@@ -8,11 +8,7 @@ var expect = require("expect.js"),
 describe('heatmiser', function(){
 
   // pin in hex little endian: 0xd204
-  var hm = new Heatmiser('localhost', 1234);
-
-  // common functions
-  var success = function(data) { }
-  var error = function(error) { throw error; }
+  var hm = new Heatmiser('localhost', 1234, 8068, 'PRT-E');
 
   // stub sockets
   var stub = null;
@@ -33,7 +29,8 @@ describe('heatmiser', function(){
     // Asynchronously call the second argument with a null error and some text when passed certain arguments
     net.connect.callsArgWithAsync(1).returns(socket);
 
-    hm.model = 'PRT-E';
+    hm.on('success', function(data) {});
+    hm.on('error', function(error) { throw error; });
   })
 
   // When done make sure you restore stubs to the original functionality.
@@ -67,7 +64,7 @@ describe('heatmiser', function(){
         done();
       });
 
-      hm.read_device(success, error);
+      hm.read_device();
     })
 
   });
@@ -93,7 +90,7 @@ describe('heatmiser', function(){
         time: new Date(2013,11,25,19,38,01)
       }
 
-      hm.write_device(dcb, success, error);
+      hm.write_device(dcb);
     })
 
     it('should set the thermostat to frost mode (away)', function(done){
@@ -115,7 +112,7 @@ describe('heatmiser', function(){
         runmode: 'frost'
       }
 
-      hm.write_device(dcb, success, error);
+      hm.write_device(dcb);
     })
 
     it('should set the thermostat to temperature hold and limit floor', function(done){
@@ -146,7 +143,7 @@ describe('heatmiser', function(){
         }
       }
 
-      hm.write_device(dcb, success, error);
+      hm.write_device(dcb);
     })
 
   });

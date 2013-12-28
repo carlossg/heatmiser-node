@@ -3,38 +3,45 @@ heatmiser-node
 
 A nodejs module to talk to heatmiser thermostats
 
-Taken from Ben Pirt heatmiser-js and stripped to leave only the bits to interact with the thermostat
-https://github.com/bjpirt/heatmiser-js
+Credits
+
+* Ben Pirt for the reading functions in Node https://github.com/bjpirt/heatmiser-js
+* heatmiser-wifi Perl project for the overall ideas and algorithms https://code.google.com/p/heatmiser-wifi/
 
 # Reading the thermostat status
 
     var hm = new Heatmiser('localhost', 1234);
-    hm.read_device(function(success) {
-      console.log(success);
-    }, function(error) {
-      console.log(error);
+
+    hm.on('success', function(data) {
+      console.log(data);
     });
+    hm.on('error', function(data) {
+      console.log(data);
+    });
+
+    hm.read_device();
 
 # Writing to the thermostat
 
-    var log = function(msg) {
-      console.log(msg);
-    }
+    var dcb;
 
-    // set the time
-    hm.write_device({
-      time: new Date()
-    }, log, log);
-
-    // set the thermostat to frost mode
-    hm.write_device({
+    // set frost mode
+    dcb = {
       runmode: 'frost'
-    }, log, log);
+    }
+    hm.write_device(dcb);
+
+    // set current date and time
+    dcb = {
+      time: new Date()
+    }
+    hm.write_device(dcb);
 
     // set the thermostat hold
-    hm.write_device({
+    dcb = {
       heating: {
         target: 20, // C
         hold: 30 // minutes
       }
-    }, log, log);
+    }
+    hm.write_device(dcb);

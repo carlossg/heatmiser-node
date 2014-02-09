@@ -109,7 +109,7 @@ describe('heatmiser', function(){
       });
 
       var dcb = {
-        runmode: 'frost'
+        runmode: 'frost_protection'
       }
 
       hm.write_device(dcb);

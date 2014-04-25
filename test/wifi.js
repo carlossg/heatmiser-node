@@ -3,12 +3,12 @@
 var expect = require("expect.js"),
   sinon = require("sinon"),
   net = require('net'),
-  Heatmiser = require("../lib/heatmiser");
+  heatmiser = require("../lib/heatmiser");
 
-describe('heatmiser', function(){
+describe('heatmiser wifi', function(){
 
   // pin in hex little endian: 0xd204
-  var hm = new Heatmiser('localhost', 1234, 8068, 'PRT-E');
+  var hm = new heatmiser.Wifi('localhost', 1234, 8068, 'PRT-E');
 
   // stub sockets
   var stub = null;

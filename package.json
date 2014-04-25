@@ -1,7 +1,7 @@
 {
   "name": "heatmiser",
-  "version": "1.0.1",
-  "description": "A node.js app that talks to heatmiser wifi thermostats",
+  "version": "2.0.0",
+  "description": "A node.js app that talks to Heatmiser WiFi and Neo thermostats",
   "main": "lib/heatmiser.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
@@ -11,10 +11,12 @@
     "url": "git://github.com/carlossg/heatmiser-node.git"
   },
   "keywords": [
-    "heatmiser"
+    "heatmiser",
+    "wifi",
+    "neo"
   ],
   "author": "Ben Pirt, Carlos Sanchez",
-  "license": "GPL",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies" : {
   },

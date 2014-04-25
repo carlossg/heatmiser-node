@@ -1,14 +1,29 @@
 heatmiser-node
 ==============
 
-A nodejs module to talk to heatmiser thermostats
+A nodejs module to talk to Heatmiser WiFi and Neo thermostats
 
-Credits
+See more examples in the `examples` dir
 
-* Ben Pirt for the reading functions in Node https://github.com/bjpirt/heatmiser-js
-* heatmiser-wifi Perl project for the overall ideas and algorithms https://code.google.com/p/heatmiser-wifi/
+# Heatmiser Neo
 
-# Reading the thermostat status
+    var neo = new Neo("192.168.1.100");
+
+    neo.on('success', function(data) {
+      console.log(data);
+    });
+    neo.on('error', function(data) {
+      console.log(data);
+    });
+
+    neo.info();
+    neo.statistics();
+    neo.setAway(true, ["living","kitchen"]);
+
+
+# Heatmiser WiFi
+
+## Reading the thermostat status
 
     var hm = new Heatmiser('localhost', 1234);
 
@@ -21,7 +36,7 @@ Credits
 
     hm.read_device();
 
-# Writing to the thermostat
+## Writing to the thermostat
 
     var dcb;
 
@@ -45,3 +60,8 @@ Credits
       }
     }
     hm.write_device(dcb);
+
+# Credits
+
+* Ben Pirt for the Heatmiser WiFi reading functions in Node https://github.com/bjpirt/heatmiser-js
+* heatmiser-wifi Perl project for the overall ideas and algorithms https://code.google.com/p/heatmiser-wifi/

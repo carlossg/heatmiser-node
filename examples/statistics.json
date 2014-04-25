@@ -1,0 +1,39 @@
+{
+  "houserecords": {
+    "highestmonthtemp": "280.5",
+    "highestweektemp": "280.5",
+    "highestyeartemp": "280.5",
+    "lowestmonthtemp": "10.0",
+    "lowestweektemp": "10.0",
+    "lowestyeartemp": "10.0"
+  },
+  "preheatrecords": {
+    "monthrun": "bathroom",
+    "weekrun": "bathroom",
+    "yearrun": "bathroom"
+  },
+  "preheatstarts": {},
+  "roomrecords": {
+    "bathroom": {
+      "highestmonthtemp": "280.5",
+      "highestweektemp": "280.5",
+      "highestyeartemp": "280.5",
+      "lowestmonthtemp": "17.9",
+      "lowestweektemp": "17.9",
+      "lowestyeartemp": "17.9"
+    },
+    "livingroom": {
+      "highestmonthtemp": "280.5",
+      "highestweektemp": "280.5",
+      "highestyeartemp": "280.5",
+      "lowestmonthtemp": "16.9",
+      "lowestweektemp": "16.9",
+      "lowestyeartemp": "16.9"
+    }
+  },
+  "runrecords": {
+    "monthrun": "livingroom",
+    "weekrun": "livingroom",
+    "yearrun": "livingroom"
+  }
+}

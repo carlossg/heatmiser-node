@@ -7,7 +7,8 @@ See more examples in the `examples` dir
 
 # Heatmiser Neo
 
-    var neo = new Neo("192.168.1.100");
+    var heatmiser = require('heatmiser');
+    var neo = new heatmiser.Neo("192.168.1.100");
 
     neo.on('success', function(data) {
       console.log(data);
@@ -25,7 +26,8 @@ See more examples in the `examples` dir
 
 ## Reading the thermostat status
 
-    var hm = new Heatmiser('localhost', 1234);
+    var heatmiser = require('heatmiser');
+    var hm = new heatmiser.Wifi('localhost', 1234);
 
     hm.on('success', function(data) {
       console.log(data);

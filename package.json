@@ -19,6 +19,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies" : {
+    "ip": "1.0.1"
   },
   "devDependencies": {
     "mocha": "*",

@@ -18,7 +18,7 @@
   "author": "Ben Pirt, Carlos Sanchez",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "dependencies" : {
+  "dependencies": {
     "ip": "1.0.1"
   },
   "devDependencies": {
